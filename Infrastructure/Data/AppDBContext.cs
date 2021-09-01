@@ -24,7 +24,7 @@ namespace Infrastructure.Data
             // is what we are using.  But I thought I would put it in anyway in case you want to test
             // with Sqlite but I don't see why unless Sql Server is not supported in a different
             // environment.  Sqlite works in all operating systems but so does Sql Server 2019
-            // which is what we are using although it is Sql Express.
+            // which is what we are using although it is Sql Server Express.
             if (Database.ProviderName == "Microsoft.EntityFrameworkCore.Sqlite")
             {
                 foreach (var entityType in builder.Model.GetEntityTypes())
