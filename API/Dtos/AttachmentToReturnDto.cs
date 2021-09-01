@@ -4,10 +4,10 @@ namespace API.Dtos
 {
     public class AttachmentToReturnDto
     {
-        public string AtId { get; set; } 
-        public string TKey { get; set; }
+        public Guid AtId { get; set; } 
+        public Guid TKey { get; set; }
         public string EMail { get; set; }
-        public string MId { get; set; }
+        public Guid MId { get; set; }
         public string Status { get; set; }
         public string ImageUrl { get; set; }
         public string AGroup { get; set; }
