@@ -50,9 +50,10 @@ namespace API
             app.UseMiddleware<ExceptionMiddleware>();
 
 
-            // if (env.IsDevelopment())
-            // {
-            // }
+            if (env.IsDevelopment())
+            {
+                app.UseSwaggerDocumentation();
+            }
 
             app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
@@ -63,12 +64,17 @@ namespace API
 
             app.UseCors("CorsPolicy");
 
+            app.UseAuthentication();
             app.UseAuthorization();
-            app.UseSwaggerDocumentation();
+
+
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                // endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }

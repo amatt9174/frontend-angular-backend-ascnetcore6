@@ -64,13 +64,21 @@ namespace API.Controllers
         return _mapper.Map<Attachment, AttachmentToReturnDto>(attachment);
     }
 
-    [HttpGet("members")]
-    public async Task<ActionResult<IReadOnlyList<Member>>> GetMembers()
+    [HttpGet("groups")]
+    public async Task<ActionResult<IReadOnlyList<GroupToReturnDto>>> GetGroups(
+        [FromQuery]AttachmentSpecParams attachmentParams)
     {
-        var members = await _membersRepo.ListAllAsync();
+        var spec = new AttachmentsWithMembersSpecification(attachmentParams);
 
-        return Ok(members);
+        var attachments = await _attachmentsRepo.ListAsync(spec);
+
+        //var data = _mapper.Map<IReadOnlyList<Attachment>, IReadOnlyList<GroupToReturnDto>>(attachments); 
+
+        var groups = attachments.Select(x => new {x.AType}).Distinct();
+
+        return Ok(groups);
     }
+
     [HttpGet("members/{id}")]
     public async Task<Member> GetMember(Guid id)
     {
