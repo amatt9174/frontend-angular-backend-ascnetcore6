@@ -13,6 +13,8 @@ import { AttachmentItemComponent } from './attachment-item/attachment-item.compo
   imports: [
     CommonModule
   ],
-  exports: [MembersComponent]
+  exports: [
+    MembersComponent
+  ]
 })
 export class MembersModule { }

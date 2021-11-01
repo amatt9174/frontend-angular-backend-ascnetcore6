@@ -1,6 +1,6 @@
 import { IAttachment } from './attachment';
 
-export interface IPagination
+export interface IPaginationAttachments
  {
   pagIndex: number;
   pageSize: number;

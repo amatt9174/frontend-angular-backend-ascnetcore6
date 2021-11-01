@@ -2,7 +2,7 @@ import { IAttachment } from '../shared/models/attachment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IPagination } from '../shared/models/pagination';
+import { IPaginationAttachments } from '../shared/models/paginationAttachments';
 import { environment } from './../../environments/environment';
 
 
@@ -14,8 +14,8 @@ export class MembersService {
 
   constructor(private http: HttpClient) { }
 
-  getAttachments(): Observable<IPagination> {
-    return this.http.get<IPagination>(this.baseUrl + 'attachments?pageSize=50');
+  getAttachments(): Observable<IPaginationAttachments> {
+    return this.http.get<IPaginationAttachments>(this.baseUrl + 'attachments?pageSize=50');
   }
 
   // getMembers(): Observable<IAttachment> {
