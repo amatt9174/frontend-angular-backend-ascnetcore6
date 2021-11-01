@@ -10,13 +10,18 @@ namespace Infrastructure.Data
         public AppDBContext(DbContextOptions<AppDBContext> options) : base(options)
         {
         }
+        public DbSet<Product> Products {get; set;}
+        public DbSet<ProductBrand> ProductBrands { get; set; }
+        public DbSet<ProductType> ProductTypes {get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
         
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(modelBuilder);
+            
+            modelBuilder.HasPostgresExtension("uuid-ossp");
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             // The if statement below only pertains to if you are using an Sqlite test DB
             // because Sqlite does not handle decimal types so we would need to convert them
@@ -25,19 +30,19 @@ namespace Infrastructure.Data
             // with Sqlite but I don't see why unless Sql Server is not supported in a different
             // environment.  Sqlite works in all operating systems but so does Sql Server 2019
             // which is what we are using although it is Sql Server Express.
-            if (Database.ProviderName == "Microsoft.EntityFrameworkCore.Sqlite")
-            {
-                foreach (var entityType in builder.Model.GetEntityTypes())
-                {
-                    var properties = entityType.ClrType.GetProperties()
-                        .Where(p => p.PropertyType == typeof(decimal));
+            // if (Database.ProviderName == "Microsoft.EntityFrameworkCore.Sqlite")
+            // {
+            //     foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            //     {
+            //         var properties = entityType.ClrType.GetProperties()
+            //             .Where(p => p.PropertyType == typeof(decimal));
                         
-                    foreach (var property in properties)
-                    {
-                        builder.Entity(entityType.Name).Property(property.Name).HasConversion<double>();
-                    }
-                }
-            }
+            //         foreach (var property in properties)
+            //         {
+            //             modelBuilder.Entity(entityType.Name).Property(property.Name).HasConversion<double>();
+            //         }
+            //     }
+            // }
             
             // builder.Entity<AppMember>().HasKey(k => k.AppMid);
             // builder.Entity<AppMember>().Property(p => p.AppMid).HasDefaultValueSql("NEWID()");

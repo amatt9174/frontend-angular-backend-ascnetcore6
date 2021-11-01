@@ -9,7 +9,8 @@ namespace Infrastructure.Data.Config
         public void Configure(EntityTypeBuilder<Member> builder)
         {
             builder.HasKey(k => k.MId);
-            builder.Property(p => p.MId).HasDefaultValueSql("NEWSEQUENTIALID()");
+            // builder.Property(p => p.MId).HasDefaultValueSql("NEWSEQUENTIALID()");
+            builder.Property(p => p.MId).HasDefaultValueSql("uuid_generate_v4()");
 
             builder.HasIndex(i => i.TKey).IsUnique(false);
             builder.Property(p => p.TKey).IsRequired(true);

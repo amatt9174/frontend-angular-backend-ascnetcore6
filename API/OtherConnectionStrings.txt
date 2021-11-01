@@ -1,0 +1,2 @@
+  // "ConnectionStrings": {
+  //   "DefaultConnection": "Data Source=.\\SQLEXPRESS;Initial Catalog=AppDb;Integrated Security=True;"

@@ -9,8 +9,8 @@ namespace Infrastructure.Data.Config
         public void Configure(EntityTypeBuilder<Attachment> builder)
         {
             builder.HasKey(k => k.AtId);
-            builder.Property(p => p.AtId).HasDefaultValueSql("NEWSEQUENTIALID()");
-
+            // builder.Property(p => p.AtId).HasDefaultValueSql("NEWSEQUENTIALID()");
+            builder.Property(p => p.AtId).HasDefaultValueSql("uuid_generate_v4()");
             builder.HasIndex(i => i.TKey).IsUnique(false);
             builder.Property(p => p.TKey).IsRequired(true);
 
