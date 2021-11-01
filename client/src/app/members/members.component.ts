@@ -15,11 +15,7 @@ export class MembersComponent implements OnInit {
   constructor(private membersService: MembersService) { }
 
   ngOnInit(): void {
-    this.membersService.getAttachments().subscribe(response => {
-      this.attachments = response.data;
-    }, error => {
-      console.log(error);
-    });
+    this.getAttachments();
   }
 
   getAttachments(): void {
