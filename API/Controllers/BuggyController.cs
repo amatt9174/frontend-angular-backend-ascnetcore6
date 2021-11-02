@@ -13,8 +13,8 @@ namespace API.Controllers
             _context = context;
         }
 
-        [HttpGet("notfound")]
-        public ActionResult GetNotFoundRequest()
+        [HttpGet("notfounduuid")]
+        public ActionResult GetNotFoundRequestGuid()
         {
             var thing = _context.Attachments.Find(new Guid());
 
@@ -26,10 +26,33 @@ namespace API.Controllers
             return Ok();
         }
 
-        [HttpGet("servererror")]
-        public ActionResult GetServerError()
+        [HttpGet("notFoundint")]
+        public ActionResult GetNotFoundRequestInt()
+        {
+            var thing = _context.Products.Find(42);
+
+            if (thing == null)
+            {
+                return NotFound(new ApiResponse(404));
+            }
+
+            return Ok();
+        }
+
+        [HttpGet("servererroruuid")]
+        public ActionResult GetServerErrorGuid()
         {
             var thing = _context.Attachments.Find(new Guid());
+            var thingToReturn = thing.ToString();
+
+            return Ok();
+        }
+
+        [HttpGet("servererrorint")]
+        public ActionResult GetServerErrorInt()
+        {
+            var thing = _context.Products.Find(42);
+
             var thingToReturn = thing.ToString();
 
             return Ok();
@@ -41,8 +64,13 @@ namespace API.Controllers
             return BadRequest(new ApiResponse(400));
         }
 
-        [HttpGet("badrequest/{id}")]
-        public ActionResult GetBadRequest(Guid id)
+        [HttpGet("badrequestuuid/{id}")]
+        public ActionResult GetNotFoundRequest(Guid id)
+        {
+            return Ok();
+        }
+        [HttpGet("badrequestint/{id}")]
+        public ActionResult GetNotFoundRequest(int id)
         {
             return Ok();
         }
