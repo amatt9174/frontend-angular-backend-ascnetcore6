@@ -111,7 +111,7 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("Attachments");
                 });
 
-            modelBuilder.Entity("Core.Entities.Member", b =>
+            modelBuilder.Entity("Core.Entities.image", b =>
                 {
                     b.Property<Guid>("MId")
                         .ValueGeneratedOnAdd()
@@ -175,7 +175,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("TKey");
 
-                    b.ToTable("Members");
+                    b.ToTable("images");
                 });
 
             modelBuilder.Entity("Core.Entities.Product", b =>
@@ -248,13 +248,13 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Entities.Attachment", b =>
                 {
-                    b.HasOne("Core.Entities.Member", "Member")
+                    b.HasOne("Core.Entities.image", "image")
                         .WithMany()
                         .HasForeignKey("MId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Member");
+                    b.Navigation("image");
                 });
 
             modelBuilder.Entity("Core.Entities.Product", b =>

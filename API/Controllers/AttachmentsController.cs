@@ -66,17 +66,15 @@ namespace API.Controllers
 
     [HttpGet("groups")]
     public async Task<ActionResult<IReadOnlyList<GroupToReturnDto>>> GetGroups(
-        [FromQuery]AttachmentSpecParams attachmentParams)
+        [FromQuery]GroupSpecParams groupParams)
     {
-        var spec = new AttachmentsWithMembersSpecification(attachmentParams);
+        var spec = new GroupsWithMembersSpecification(groupParams);
 
         var attachments = await _attachmentsRepo.ListAsync(spec);
 
-        //var data = _mapper.Map<IReadOnlyList<Attachment>, IReadOnlyList<GroupToReturnDto>>(attachments); 
+        var groupsDistinct = attachments.Select(x => new {x.AGroup}).Distinct();
 
-        var groups = attachments.Select(x => new {x.AType}).Distinct();
-
-        return Ok(groups);
+        return Ok(groupsDistinct);
     }
 
     [HttpGet("members/{id}")]

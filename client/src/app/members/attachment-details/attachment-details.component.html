@@ -1,0 +1,17 @@
+<div class="container mt-5">
+    <div class="row" *ngIf="attachment">
+        <div class="col-6">
+            <img src="{{ attachment.imageUrl }}" alt="{{ attachment.aType }}" class="img-fluid w-100">
+        </div>
+        <div class="col-6">
+            <h3>{{ attachment.aType }}</h3>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 ml-3">
+                <h4>Description</h4>
+                <p>{{ attachment.aDesc }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+

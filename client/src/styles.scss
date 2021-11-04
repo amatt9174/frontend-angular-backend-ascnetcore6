@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+.xng-breadcrumb-root {
+    padding: 8px 16px;
+    display: inline;
+    border-radius: 0;
+}
+
+nav.xng-breadcrumb-root {
+    color: #839496;
+}
+
+a.xng-breadcrumb-link {
+    color: #839496;
+}
+
+label.xng-breadcrumb-trail {
+    margin-bottom: 0;
+    color: #839496;
+}
+
+.xng-breadcrumb-seperator {
+    padding: 0 0;
+}
+.test {Color: rgba(64, 141, 138, 0.3)}

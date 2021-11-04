@@ -1,38 +1,63 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row">
 
     <section class="col-3">
-      <h5 class="text-warning ml-3">Sort</h5>
-      <select class="custom-select mb-3">
-        <option selected>Alphabetical</option>
-        <option>Group: Low to High></option>
-        <option>Group: High to Low></option>
-      </select>
+      <ng-container *ngIf="aGroups">
+        <h5 class="text-warning ml-3 mt-3 mb-4">Sort</h5>
+        <select class="custom-select mb-3" (change)="onSortSelected($event.target.value)">
+          <option *ngFor="let sort of sortOptions" [value]="sort.value">
+            {{sort.name}}
+          </option>
+        </select>
 
-      <h5 class="text-warning ml-3">Attachments</h5>
-      <ul class="list-group my-3">
-        <li class="list-group-item active" aria-current="true">An active item</li>
-        <li class="list-group-item">Attachment Group</li>
-        <li class="list-group-item">Attachment Type</li>
-      </ul>
+        <h5 class="text-warning ml-3">Groups</h5>
+        <ul class="list-group my-3">
+          <li class="list-group-item" style="cursor:pointer"
+            *ngFor="let group of aGroups"
+            [class.active]="group.aGroup === this.membersParams.aGroup"
+            [value]="group.aGroup"
+            (click)="onGroupSelected(group.aGroup)"
+          >
+            {{ group.aGroup }}
+          </li>
+        </ul>
+      </ng-container>
     </section>
 
     <section class="col-9">
       <div class="d-flex justify-content-between allign-items-center pb-2">
-        <header>
-          <span>Showing <strong>10</strong> of <strong>16</strong> Results</span>
-        </header>
-        <div class="form-inline mt-2">
-          <input type="text" class="form-control mr-2" style="width: 300px;" placeholder="Search">
-            <button class="btn btn-outline-primary my-2">Search</button>
-            <button class="btn btn-outline-success ml-2 my-2">Reset</button>
+
+        <app-paging-header class="pt-4"
+          [totalCount]="totalCount"
+          [pageSize]="this.membersParams.pageSize"
+          [pageNumber]="this.membersParams.pageNumber"  
+        ></app-paging-header>
+
+        <div class="form-inline mt-2" *ngIf="attachments">
+          <input (keyup.enter)="onSearch()" type="text" class="form-control mr-2" #search style="width: 300px;" placeholder="Search">
+          <button (click)="onSearch()" class="btn btn-outline-primary my-2">Search</button>
+          <button (click)="onReset()" class="btn btn-outline-success ml-2 my-2">Reset</button>
         </div>
       </div>
+
       <div class="row">
         <div class="col-4 mb-4" *ngFor="let item of attachments">
+
           <app-attachment-item [attachment]="item"></app-attachment-item>
+
         </div>
       </div>
+
+      <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
+
+        <app-pager
+          [pageSize]="membersParams.pageSize"
+          [totalCount]="totalCount"
+          (pageChanged)="onPageChanged($event)"  
+        ></app-pager>
+
+      </div>
     </section>
+    
   </div>
 </div>

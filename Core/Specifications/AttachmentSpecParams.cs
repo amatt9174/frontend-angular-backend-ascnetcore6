@@ -22,5 +22,11 @@ namespace Core.Specifications
             get => _search;
             set => _search = value.ToLower();
         }
+        private string _agroup;
+        public string AGroup
+        {
+            get => _agroup;
+            set => _agroup = value.ToLower();
+        }
     }
 }

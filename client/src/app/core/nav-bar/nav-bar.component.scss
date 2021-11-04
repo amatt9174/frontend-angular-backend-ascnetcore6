@@ -4,8 +4,9 @@
   min-width: 25px;
   border-radius: 50%;
   font-size: 1em;
-  background: blue;
-  color: white;
+  background-color: rgb(125, 163, 155);
+  // background: blue;
+  // color: white;
   text-align: center;
   top: -12px;
   right: 32px;
@@ -27,4 +28,13 @@ a {
     outline: none;
   }
 }
+
+.bg-color {
+  background-color: rgb(77, 112, 107);
+}
+
+.color {
+  color: #FFFFFF;
+}
+
 
