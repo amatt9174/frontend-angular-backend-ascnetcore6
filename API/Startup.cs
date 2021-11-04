@@ -38,11 +38,11 @@ namespace API
             services.AddDbContext<AppDBContext>(x =>
                 x.UseNpgsql(_config.GetConnectionString("DefaultConnection")));
 
-            // services.AddSingleton<ConnectionMultiplexer>(c => {
-            //     var configuration =
-            //         ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
-            //     return ConnectionMultiplexer.Connect(configuration);    
-            // });
+            services.AddSingleton<IConnectionMultiplexer>(c => {
+                var configuration =
+                    ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
+                return ConnectionMultiplexer.Connect(configuration);    
+            });
 
             services.AddApplicationServices();
             services.AddSwaggerDocumentation();
