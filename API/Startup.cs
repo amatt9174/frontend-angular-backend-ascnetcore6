@@ -5,6 +5,7 @@ using API.Helpers;
 using API.Middleware;
 using Core.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,8 @@ namespace API
             //     x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
             services.AddDbContext<AppDBContext>(x =>
                 x.UseNpgsql(_config.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppIdentityDBContext>( x =>
+                x.UseNpgsql(_config.GetConnectionString("IdentityConnection")));
 
             services.AddSingleton<IConnectionMultiplexer>(c => {
                 var configuration =
@@ -45,6 +48,7 @@ namespace API
             });
 
             services.AddApplicationServices();
+            services.AddIdentityServices(_config);
             services.AddSwaggerDocumentation();
             services.AddCors(opt =>
             {
