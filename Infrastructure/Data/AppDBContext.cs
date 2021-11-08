@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Reflection;
 using Core.Entities;
+using Core.Entities.OrderAggregate;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
@@ -13,6 +14,9 @@ namespace Infrastructure.Data
         public DbSet<Product> Products {get; set;}
         public DbSet<ProductBrand> ProductBrands { get; set; }
         public DbSet<ProductType> ProductTypes {get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<DeliveryMethod> DeliveryMethods { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
         
@@ -24,8 +28,8 @@ namespace Infrastructure.Data
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             // The if statement below only pertains to if you are using an Sqlite test DB
-            // because Sqlite does not handle decimal types so we would need to convert them
-            // to double types where they are used.  Does not effect Sql Server which
+            // because Sqlite does not handle decimal types or DateTimeOffset types so we would
+            // need to convert them where they are used.  Does not effect Sql Server or Postgres which
             // is what we are using.  But I thought I would put it in anyway in case you want to test
             // with Sqlite but I don't see why unless Sql Server is not supported in a different
             // environment.  Sqlite works in all operating systems but so does Sql Server 2019
@@ -36,10 +40,17 @@ namespace Infrastructure.Data
             //     {
             //         var properties = entityType.ClrType.GetProperties()
             //             .Where(p => p.PropertyType == typeof(decimal));
-                        
+            //         var dateTimeProperties = entityType.ClrType.GetProperties()
+            //             .Where(p => p.PropertyType == typeof(DateTimeOffset));
+            //
             //         foreach (var property in properties)
             //         {
             //             modelBuilder.Entity(entityType.Name).Property(property.Name).HasConversion<double>();
+            //         }
+            //         foreach (var property in dateTimeproperties)
+            //         {
+            //             modelBuilder.Entity(entityType.Name).Property(property.Name)
+            //                .HasConversion(new DateTimeOffsetToBinaryConverter());
             //         }
             //     }
             // }

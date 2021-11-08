@@ -65,3 +65,4 @@ export class AccountService {
     return this.http.get(this.baseUrl + 'account/emailexists?email=' + email);
   }
 }
+
