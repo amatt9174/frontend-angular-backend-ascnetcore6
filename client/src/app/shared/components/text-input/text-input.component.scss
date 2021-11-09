@@ -17,7 +17,7 @@
     width: 100%;
     margin-bottom: 0; /* Override default `<label>` margin */
     line-height: 1.5;
-    color: #495057;
+    color: #444c55;
     pointer-events: none;
     cursor: text; /* Match the input under the label */
     border: 1px solid transparent;
@@ -106,5 +106,18 @@
       top: 15px;
       right: 10px;
       margin-top: 0;
+  }
+
+  .form-label-group input:focus {
+    border: 2px solid #B58900;
+  }
+  .is-invalid {
+    border: 2px solid #CB4B16
+  }
+  .is-valid {
+    border: 2px solid #2AA198
+  }
+  span.ng-star-inserted {
+    color: #CB4B16;  
   }
   
