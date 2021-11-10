@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 table-responsive border-none">
+            <h4 class="mb-4">Click on order to view</h4>
+            <table class="table">
+                <thead>
+                    <tr class="align-middle text-center bg-color">
+                        <th class="border-0">
+                            <div class="p-2 px-3 text-uppercase">Order Number</div>
+                        </th>
+                        <th class="border-0">
+                            <div class="p-2 px-3 text-uppercase">Order Date</div>
+                        </th>
+                        <th class="border-0">
+                            <div class="p-2 px-3 text-uppercase">Order Total</div>
+                        </th>
+                        <th class="border-0">
+                            <div class="p-2 px-3 text-uppercase">Order Status</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="cursor: pointer;" cu *ngFor="let order of orders" routerLink="/orders/{{ order.id }}">
+                        <th class="align-middle text-center"># {{ order.id }}</th>
+                        <td class="align-middle text-center">{{ order.orderDate | date: 'medium' }}</td>
+                        <td class="align-middle text-center">{{ order.total | currency }}</td>
+                        <td class="align-middle text-center">{{ order.status}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
