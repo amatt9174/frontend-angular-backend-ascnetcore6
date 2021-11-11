@@ -10,11 +10,11 @@ button.nav-link {
     &:hover {
         color: #FFFFFF;
     }
-    &.active:hover {
-        background-color: #B58900;
-    }
+    // &.active:hover {
+    //     background-color: #B58900;
+    // }
     &.active {
-        background-color: #839496;
+        background-color: #B58900;
         color: #FFFFFF;
     }
     & :active {
@@ -22,5 +22,8 @@ button.nav-link {
     }
     &.active:focus {
         outline: none;
+    }
+    &:disabled:not(.active) {
+        color: #839496;
     }
 }
