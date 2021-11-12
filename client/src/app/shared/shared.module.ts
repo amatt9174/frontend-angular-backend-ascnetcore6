@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -28,6 +28,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     PaginationModule.forRoot(),
     CarouselModule.forRoot(),
     BsDropdownModule.forRoot(),
@@ -36,6 +37,7 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     ReactiveFormsModule,
+    FormsModule,
     PaginationModule,
     CarouselModule,
     BsDropdownModule,

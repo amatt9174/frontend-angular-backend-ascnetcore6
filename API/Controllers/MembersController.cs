@@ -25,6 +25,7 @@ namespace API.Controllers
             _attachmentsRepo = attachmentsRepo;
             _membersRepo = membersRepo;
         }
+        [Cached(600)]
         [HttpGet]
         public async Task<ActionResult<Pagination<MemberToReturnDto>>> GetMembers(
             [FromQuery]MemberSpecParams memberParams)
@@ -41,6 +42,7 @@ namespace API.Controllers
 
             return Ok(new Pagination<MemberToReturnDto>(memberParams.PageIndex, memberParams.PageSize, totalItems, data));
         }
+        [Cached(600)]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
