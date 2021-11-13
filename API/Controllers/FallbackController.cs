@@ -9,7 +9,7 @@ namespace API.Controllers
 {
     public class FallbackController : Controller
     {
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return PhysicalFile(Path.Combine(Directory.GetCurrentDirectory(),
                 "wwwroot", "index.html"), "text/HTML");

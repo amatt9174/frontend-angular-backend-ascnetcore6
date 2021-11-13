@@ -23,7 +23,7 @@ export class ShopService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(useCache: boolean) {
+  getProducts(useCache: boolean): Observable<PaginationProducts> {
 
     if (useCache === false) {
       this.productCache = new Map();
