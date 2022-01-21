@@ -25,15 +25,15 @@ namespace Infrastructure.Data
                         FirstName = "phillip",
                         MiddleInitial = "m",
                         LastName = "matteis",
-                        DateOfBirth = DateTime.Parse("1948-04-26"),
+                        DateOfBirth = DateTime.Parse("1948-04-26").ToUniversalTime(),
                         EMail = "phil@intellect.net",
                         DriversLicenseNumber = 11122233,
                         Status = "active",
-                        DateCreated = DateTimeOffset.UtcNow,
+                        DateCreated = DateTime.UtcNow,
                         LocalTimezoneCreated =
                             TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                             ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                        DateUpdated = DateTimeOffset.UtcNow,
+                        DateUpdated = DateTime.UtcNow,
                         LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                             ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                     };
@@ -44,15 +44,15 @@ namespace Infrastructure.Data
                         FirstName = "anthony",
                         MiddleInitial = "c",
                         LastName = "matteis",
-                        DateOfBirth = DateTime.Parse("1957-07-16"),
+                        DateOfBirth = DateTime.Parse("1957-07-16").ToUniversalTime(),
                         EMail = "amatt9174@gmail.com",
                         DriversLicenseNumber = 14731317,
                         Status = "active",
-                        DateCreated = DateTimeOffset.UtcNow,
+                        DateCreated = DateTime.UtcNow,
                         LocalTimezoneCreated =
                             TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                             ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                        DateUpdated = DateTimeOffset.UtcNow,
+                        DateUpdated = DateTime.UtcNow,
                         LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                             ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                     };
@@ -76,11 +76,11 @@ namespace Infrastructure.Data
                             ACypher = "acypher 1",
                             Remarks = "remarks 1",
                             Usage = "usage 1",
-                            DateCreated = DateTimeOffset.UtcNow,
+                            DateCreated = DateTime.UtcNow,
                             LocalTimezoneCreated =
                                 TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                            DateUpdated = DateTimeOffset.UtcNow,
+                            DateUpdated = DateTime.UtcNow,
                             LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                         },
@@ -98,11 +98,11 @@ namespace Infrastructure.Data
                             ACypher = "acypher 2",
                             Remarks = "remarks 2",
                             Usage = "usage 2",
-                            DateCreated = DateTimeOffset.UtcNow,
+                            DateCreated = DateTime.UtcNow,
                             LocalTimezoneCreated =
                                 TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                            DateUpdated = DateTimeOffset.UtcNow,
+                            DateUpdated = DateTime.UtcNow,
                             LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                         },
@@ -120,11 +120,11 @@ namespace Infrastructure.Data
                             ACypher = "acypher 1",
                             Remarks = "remarks 1",
                             Usage = "usage 1",
-                            DateCreated = DateTimeOffset.UtcNow,
+                            DateCreated = DateTime.UtcNow,
                             LocalTimezoneCreated =
                                 TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                            DateUpdated = DateTimeOffset.UtcNow,
+                            DateUpdated = DateTime.UtcNow,
                             LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                         },
@@ -142,11 +142,11 @@ namespace Infrastructure.Data
                             ACypher = "acypher 2",
                             Remarks = "remarks 2",
                             Usage = "usage 2",
-                            DateCreated = DateTimeOffset.UtcNow,
+                            DateCreated = DateTime.UtcNow,
                             LocalTimezoneCreated =
                                 TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                            DateUpdated = DateTimeOffset.UtcNow,
+                            DateUpdated = DateTime.UtcNow,
                             LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                         },
@@ -164,11 +164,11 @@ namespace Infrastructure.Data
                             ACypher = "acypher 2",
                             Remarks = "remarks 2",
                             Usage = "usage 2",
-                            DateCreated = DateTimeOffset.UtcNow,
+                            DateCreated = DateTime.UtcNow,
                             LocalTimezoneCreated =
                                 TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                            DateUpdated = DateTimeOffset.UtcNow,
+                            DateUpdated = DateTime.UtcNow,
                             LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                         },
@@ -186,11 +186,11 @@ namespace Infrastructure.Data
                             ACypher = "acypher 2",
                             Remarks = "remarks 2",
                             Usage = "usage 2",
-                            DateCreated = DateTimeOffset.UtcNow,
+                            DateCreated = DateTime.UtcNow,
                             LocalTimezoneCreated =
                                 TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                            DateUpdated = DateTimeOffset.UtcNow,
+                            DateUpdated = DateTime.UtcNow,
                             LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                         },
@@ -208,11 +208,11 @@ namespace Infrastructure.Data
                             ACypher = "acypher 2",
                             Remarks = "remarks 2",
                             Usage = "usage 2",
-                            DateCreated = DateTimeOffset.UtcNow,
+                            DateCreated = DateTime.UtcNow,
                             LocalTimezoneCreated =
                                 TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                            DateUpdated = DateTimeOffset.UtcNow,
+                            DateUpdated = DateTime.UtcNow,
                             LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                         },
@@ -230,11 +230,11 @@ namespace Infrastructure.Data
                             ACypher = "acypher 2",
                             Remarks = "remarks 2",
                             Usage = "usage 2",
-                            DateCreated = DateTimeOffset.UtcNow,
+                            DateCreated = DateTime.UtcNow,
                             LocalTimezoneCreated =
                                 TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                            DateUpdated = DateTimeOffset.UtcNow,
+                            DateUpdated = DateTime.UtcNow,
                             LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                         },
@@ -252,11 +252,11 @@ namespace Infrastructure.Data
                             ACypher = "acypher 2",
                             Remarks = "remarks 2",
                             Usage = "usage 2",
-                            DateCreated = DateTimeOffset.UtcNow,
+                            DateCreated = DateTime.UtcNow,
                             LocalTimezoneCreated =
                                 TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                            DateUpdated = DateTimeOffset.UtcNow,
+                            DateUpdated = DateTime.UtcNow,
                             LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                         },
@@ -274,11 +274,11 @@ namespace Infrastructure.Data
                             ACypher = "acypher 2",
                             Remarks = "remarks 2",
                             Usage = "usage 2",
-                            DateCreated = DateTimeOffset.UtcNow,
+                            DateCreated = DateTime.UtcNow,
                             LocalTimezoneCreated =
                                 TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                            DateUpdated = DateTimeOffset.UtcNow,
+                            DateUpdated = DateTime.UtcNow,
                             LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                         },
@@ -296,11 +296,11 @@ namespace Infrastructure.Data
                             ACypher = "acypher 2",
                             Remarks = "remarks 2",
                             Usage = "usage 2",
-                            DateCreated = DateTimeOffset.UtcNow,
+                            DateCreated = DateTime.UtcNow,
                             LocalTimezoneCreated =
                                 TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                            DateUpdated = DateTimeOffset.UtcNow,
+                            DateUpdated = DateTime.UtcNow,
                             LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                         },
@@ -318,11 +318,11 @@ namespace Infrastructure.Data
                             ACypher = "acypher 2",
                             Remarks = "remarks 2",
                             Usage = "usage 2",
-                            DateCreated = DateTimeOffset.UtcNow,
+                            DateCreated = DateTime.UtcNow,
                             LocalTimezoneCreated =
                                 TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                            DateUpdated = DateTimeOffset.UtcNow,
+                            DateUpdated = DateTime.UtcNow,
                             LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                         },
@@ -340,11 +340,11 @@ namespace Infrastructure.Data
                             ACypher = "acypher 2",
                             Remarks = "remarks 2",
                             Usage = "usage 2",
-                            DateCreated = DateTimeOffset.UtcNow,
+                            DateCreated = DateTime.UtcNow,
                             LocalTimezoneCreated =
                                 TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                            DateUpdated = DateTimeOffset.UtcNow,
+                            DateUpdated = DateTime.UtcNow,
                             LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                         },
@@ -362,11 +362,11 @@ namespace Infrastructure.Data
                             ACypher = "acypher 2",
                             Remarks = "remarks 2",
                             Usage = "usage 2",
-                            DateCreated = DateTimeOffset.UtcNow,
+                            DateCreated = DateTime.UtcNow,
                             LocalTimezoneCreated =
                                 TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName,
-                            DateUpdated = DateTimeOffset.UtcNow,
+                            DateUpdated = DateTime.UtcNow,
                             LocalTimezoneUpdated = TimeZoneInfo.Local.IsDaylightSavingTime(DateTime.UtcNow)
                                 ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName
                         },
